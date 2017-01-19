@@ -18,21 +18,14 @@ namespace AutoRest.Core.Utilities
     {
         private const string FolderKey = "Folder";
 
-        private Dictionary<string, StringBuilder> _virtualStore =
+        public Dictionary<string, StringBuilder> VirtualStore { get; } = 
             new Dictionary<string, StringBuilder>();
-
-        public Dictionary<string, StringBuilder> VirtualStore
-        {
-            get { return _virtualStore; }
-        }
 
         public bool IsCompletePath(string path)
            => Uri.IsWellFormedUriString(path, UriKind.Relative);
 
         public string MakePathRooted(Uri rootPath, string relativePath)
-        {
-            return (new Uri(Path.Combine(rootPath.ToString(), relativePath).ToString(), UriKind.Relative)).ToString();
-        }
+            => (new Uri(Path.Combine(rootPath.ToString(), relativePath).ToString(), UriKind.Relative)).ToString();
 
         public Uri GetParentDir(string path)
         {
@@ -98,9 +91,7 @@ namespace AutoRest.Core.Utilities
         }
 
         public bool FileExists(string path)
-        {
-            return VirtualStore.ContainsKey(path);
-        }
+            => VirtualStore.ContainsKey(path);
 
         public void DeleteFile(string path)
         {
@@ -222,15 +213,11 @@ namespace AutoRest.Core.Utilities
         {
             if (disposing)
             {
-                _virtualStore?.Clear();
+                VirtualStore?.Clear();
             }
         }
+
         public string CurrentDirectory
-        {
-            get
-            {
-                return "";
-            }
-        }
+            => "";
     }
 }
