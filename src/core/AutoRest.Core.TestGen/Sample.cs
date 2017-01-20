@@ -11,7 +11,7 @@ namespace AutoRest.Core.TestGen
 
         public string OperationId { get; set; }
 
-        public JObject Parameters { get; set; }
+        public Dictionary<string, JToken> Parameters { get; set; }
 
         public Dictionary<string, Response> Responses { get; set; }
 

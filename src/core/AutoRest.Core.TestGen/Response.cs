@@ -7,6 +7,6 @@ namespace AutoRest.Core.TestGen
     {
         public Dictionary<string, string> Headers { get; set; }
 
-        public JObject Body { get; set; }
+        public JToken Body { get; set; }
     }
 }
