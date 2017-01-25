@@ -1,4 +1,5 @@
-﻿using AutoRest.Core.Utilities;
+﻿using AutoRest.Core.Model;
+using AutoRest.Core.Utilities;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
@@ -22,5 +23,8 @@ namespace AutoRest.Core.TestGen
 
         public static Sample Load(string fileName, IFileSystem fileSystem)
             => JsonConvert.DeserializeObject<Sample>(fileSystem.ReadFileAsText(fileName), Settings);
+
+        public SampleModel CreateModel(CodeModel model)
+            => new SampleModel(model, this);
     }
 }
