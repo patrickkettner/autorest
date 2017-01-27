@@ -1,10 +1,10 @@
 ﻿namespace AutoRest.Core.TestGen.Value
 {
-    public sealed class StringValue : PrimiryValue
+    public sealed class StreamValue : ValueBase
     {
         public string Value { get; }
 
-        public StringValue(string value)
+        public StreamValue(string value)
         {
             Value = value;
         }

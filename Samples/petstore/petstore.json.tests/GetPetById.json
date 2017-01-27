@@ -1,0 +1,6 @@
+{
+    "operationId": "getPetById",
+    "parameters": {
+        "petId":  42
+    }
+}

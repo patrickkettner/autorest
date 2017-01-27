@@ -1,0 +1,6 @@
+{
+    "operationId": "deletePet",
+    "parameters": {
+        "petId":  42
+    }
+}

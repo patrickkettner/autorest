@@ -1,0 +1,6 @@
+{
+    "operationId": "findPetsByTags",
+    "parameters": {
+        "tags": [ "tag2" ]
+    }
+}

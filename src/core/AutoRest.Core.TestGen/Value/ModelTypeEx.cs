@@ -1,5 +1,7 @@
 ﻿using AutoRest.Core.Model;
 using Newtonsoft.Json.Linq;
+using System;
+using System.Linq;
 
 namespace AutoRest.Core.TestGen.Value
 {
@@ -19,7 +21,11 @@ namespace AutoRest.Core.TestGen.Value
                 switch (primiryType.KnownPrimaryType)
                 {
                     case KnownPrimaryType.String:
-                        return new StringValue(jValue.ToObject<string>());
+                        return new PrimaryValue<string>(jValue.ToObject<string>());
+                    case KnownPrimaryType.Long:
+                        return new PrimaryValue<long>(jValue.ToObject<long>());
+                    case KnownPrimaryType.Stream:
+                        return new StreamValue(jValue.ToObject<string>());
                 }
                 return null;
             }
@@ -27,13 +33,15 @@ namespace AutoRest.Core.TestGen.Value
             var sequenceType = type as SequenceType;
             if (sequenceType != null)
             {
-                return new SequenceValue();
+                var jArray = value as JArray;
+                var elementType = sequenceType.ElementType;
+                return new SequenceValue(jArray.Select(v => elementType.CreateValueModel(v)));
             }
 
             var enumType = type as EnumType;
             if (enumType != null)
             {
-                return new EnumValue();
+                return new EnumValue(value.ToObject<string>());
             }
 
             return new CompositeValue((CompositeType)type, value as JObject);
