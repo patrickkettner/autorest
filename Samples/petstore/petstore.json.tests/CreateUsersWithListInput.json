@@ -1,0 +1,8 @@
+{
+    "operationId": "createUsersWithListInput",
+    "parameters": {
+        "body": [
+            { "id": 1 }
+         ]
+    }
+}

@@ -1,6 +1,6 @@
 {
     "operationId": "getPetById",
     "parameters": {
-        "petId":  42
+        "petId":  421
     }
 }

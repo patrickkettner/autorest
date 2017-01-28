@@ -9,6 +9,8 @@ namespace AutoRest.Core.TestGen.Value
     {
         public static ValueBase CreateValueModel(this IModelType type, JToken value)
         {
+            Console.WriteLine("TYPE: " + type.GetType());
+
             if (value == null)
             {
                 return null;
@@ -17,15 +19,22 @@ namespace AutoRest.Core.TestGen.Value
             var primiryType = type as PrimaryType;
             if (primiryType != null)
             {
+                Console.WriteLine("KNOWN TYPE: " + primiryType.KnownPrimaryType);
                 var jValue = value as JValue;
                 switch (primiryType.KnownPrimaryType)
                 {
                     case KnownPrimaryType.String:
                         return new PrimaryValue<string>(jValue.ToObject<string>());
+                    case KnownPrimaryType.Int:
+                        return new PrimaryValue<int>(jValue.ToObject<int>());
                     case KnownPrimaryType.Long:
                         return new PrimaryValue<long>(jValue.ToObject<long>());
+                    case KnownPrimaryType.Boolean:
+                        return new PrimaryValue<bool>(jValue.ToObject<bool>());
                     case KnownPrimaryType.Stream:
                         return new StreamValue(jValue.ToObject<string>());
+                    case KnownPrimaryType.DateTime:
+                        return new DateTimeValue(jValue.ToObject<DateTime>());
                 }
                 return null;
             }

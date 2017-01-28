@@ -1,0 +1,6 @@
+{
+    "operationId": "deleteOrder",
+    "parameters": {
+        "orderId":  42
+    }
+}

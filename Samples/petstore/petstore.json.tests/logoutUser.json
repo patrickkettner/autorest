@@ -1,0 +1,4 @@
+{
+    "operationId": "logoutUser",
+    "parameters": { }
+}

@@ -1,0 +1,7 @@
+{
+    "operationId": "updateUser",
+    "parameters": {
+        "username": "belkin",
+        "body": {}
+    }
+}

@@ -2,7 +2,7 @@
     "operationId": "addPet",
     "parameters": {
         "body": {
-            "id": 0,
+            "id": 421,
             "name": "doggie",
             "category": {
                 "id": 0,
