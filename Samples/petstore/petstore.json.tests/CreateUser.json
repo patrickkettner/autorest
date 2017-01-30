@@ -1,0 +1,15 @@
+{
+    "operationId": "createUser",
+    "parameters": {
+        "body": {
+            "id": 0,
+            "username": "belkin",
+            "firstName": "string",
+            "lastName": "string",
+            "email": "string",
+            "password": "password",
+            "phone": "phone",
+            "userStatus": 0,
+        }
+    }
+}

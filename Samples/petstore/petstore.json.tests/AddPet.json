@@ -1,0 +1,21 @@
+{
+    "operationId": "addPet",
+    "parameters": {
+        "body": {
+            "id": 421,
+            "name": "doggie",
+            "category": {
+                "id": 0,
+                "name": "string"
+            },
+            "photoUrls": [ "string" ],
+            "tags": [
+                {
+                    "id": 0,
+                    "name": "string"
+                }
+            ],
+            "status": "available"
+        }
+    }
+}

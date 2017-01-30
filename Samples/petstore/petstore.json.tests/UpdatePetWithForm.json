@@ -1,0 +1,8 @@
+{
+    "operationId": "updatePetWithForm",
+    "parameters": {
+        "petId": "425",
+        "name": "lion",
+        "status": "sold"
+    }
+}

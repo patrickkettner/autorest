@@ -1,0 +1,6 @@
+{
+    "operationId": "findPetsByStatus",
+    "parameters": {
+        "status": [ "available" ]
+    }
+}

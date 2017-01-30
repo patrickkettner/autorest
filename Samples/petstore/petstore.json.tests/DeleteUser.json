@@ -1,0 +1,6 @@
+{
+    "operationId": "deleteUser",
+    "parameters": {
+        "username":  "belkin"
+    }
+}

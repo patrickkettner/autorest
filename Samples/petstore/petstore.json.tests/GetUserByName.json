@@ -1,0 +1,6 @@
+{
+    "operationId": "getUserByName",
+    "parameters": {
+        "username":  "belkin"
+    }
+}

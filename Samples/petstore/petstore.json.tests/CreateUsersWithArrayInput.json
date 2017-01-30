@@ -1,0 +1,8 @@
+{
+    "operationId": "createUsersWithArrayInput",
+    "parameters": {
+        "body": [
+            { "id": 0 }
+         ]
+    }
+}

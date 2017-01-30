@@ -1,0 +1,13 @@
+{
+    "operationId": "placeOrder",
+    "parameters": {
+        "body": {
+            "id": 42,
+            "petId": 0,
+            "quantity": 0,
+            "shipDate": "2017-01-18T18:23:32.708Z",
+            "status": "placed",
+            "complete": false
+        }
+    }
+}

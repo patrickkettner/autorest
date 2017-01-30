@@ -1,0 +1,7 @@
+{
+    "operationId": "loginUser",
+    "parameters": {
+        "username": "someuser",
+        "password": "strongpassword"
+    }
+}

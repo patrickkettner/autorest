@@ -1,5 +1,7 @@
 ﻿using AutoRest.Core.Model;
 using Newtonsoft.Json.Linq;
+using System;
+using System.Linq;
 
 namespace AutoRest.Core.TestGen.Value
 {
@@ -7,6 +9,8 @@ namespace AutoRest.Core.TestGen.Value
     {
         public static ValueBase CreateValueModel(this IModelType type, JToken value)
         {
+            Console.WriteLine("TYPE: " + type.GetType());
+
             if (value == null)
             {
                 return null;
@@ -15,11 +19,22 @@ namespace AutoRest.Core.TestGen.Value
             var primiryType = type as PrimaryType;
             if (primiryType != null)
             {
+                Console.WriteLine("KNOWN TYPE: " + primiryType.KnownPrimaryType);
                 var jValue = value as JValue;
                 switch (primiryType.KnownPrimaryType)
                 {
                     case KnownPrimaryType.String:
-                        return new StringValue(jValue.ToObject<string>());
+                        return new PrimaryValue<string>(jValue.ToObject<string>());
+                    case KnownPrimaryType.Int:
+                        return new PrimaryValue<int>(jValue.ToObject<int>());
+                    case KnownPrimaryType.Long:
+                        return new PrimaryValue<long>(jValue.ToObject<long>());
+                    case KnownPrimaryType.Boolean:
+                        return new PrimaryValue<bool>(jValue.ToObject<bool>());
+                    case KnownPrimaryType.Stream:
+                        return new StreamValue(jValue.ToObject<string>());
+                    case KnownPrimaryType.DateTime:
+                        return new DateTimeValue(jValue.ToObject<DateTime>());
                 }
                 return null;
             }
@@ -27,13 +42,15 @@ namespace AutoRest.Core.TestGen.Value
             var sequenceType = type as SequenceType;
             if (sequenceType != null)
             {
-                return new SequenceValue();
+                var jArray = value as JArray;
+                var elementType = sequenceType.ElementType;
+                return new SequenceValue(jArray.Select(v => elementType.CreateValueModel(v)));
             }
 
             var enumType = type as EnumType;
             if (enumType != null)
             {
-                return new EnumValue();
+                return new EnumValue(value.ToObject<string>());
             }
 
             return new CompositeValue((CompositeType)type, value as JObject);

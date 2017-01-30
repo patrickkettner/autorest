@@ -1,0 +1,8 @@
+{
+    "operationId": "uploadFile",
+    "parameters": {
+        "petId": 42, 
+        "additionalMetadata": "aaa", 
+        "file": "file"
+    }
+}

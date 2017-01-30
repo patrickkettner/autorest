@@ -1,0 +1,6 @@
+{
+    "operationId": "getOrderById",
+    "parameters": {
+        "orderId":  "42"
+    }
+}
