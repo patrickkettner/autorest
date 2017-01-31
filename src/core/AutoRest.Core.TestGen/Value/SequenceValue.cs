@@ -1,12 +1,13 @@
-﻿using System.Collections.Generic;
+﻿using AutoRest.Core.Model;
+using System.Collections.Generic;
 
 namespace AutoRest.Core.TestGen.Value
 {
-    public sealed class SequenceValue : ValueBase
+    public sealed class SequenceValue : ValueBase<SequenceType>
     {
         public IEnumerable<ValueBase> Value { get; }
 
-        public SequenceValue(IEnumerable<ValueBase> value)
+        public SequenceValue(SequenceType sequenceType, IEnumerable<ValueBase> value): base(sequenceType)
         {
             Value = value;
         }

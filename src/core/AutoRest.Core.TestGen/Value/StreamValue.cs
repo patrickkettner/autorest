@@ -1,10 +1,12 @@
-﻿namespace AutoRest.Core.TestGen.Value
+﻿using AutoRest.Core.Model;
+
+namespace AutoRest.Core.TestGen.Value
 {
-    public sealed class StreamValue : ValueBase
+    public sealed class StreamValue : ValueBase<PrimaryType>
     {
         public string Value { get; }
 
-        public StreamValue(string value)
+        public StreamValue(PrimaryType type, string value): base(type)
         {
             Value = value;
         }

@@ -1,12 +1,13 @@
-﻿using System;
+﻿using AutoRest.Core.Model;
+using System;
 
 namespace AutoRest.Core.TestGen.Value
 {
-    public sealed class DateTimeValue : ValueBase
+    public sealed class DateTimeValue : ValueBase<PrimaryType>
     {
         public DateTime Value { get; }
 
-        public DateTimeValue(DateTime value)
+        public DateTimeValue(PrimaryType type, DateTime value): base(type)
         {
             Value = value;
         }

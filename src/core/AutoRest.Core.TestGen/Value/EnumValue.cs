@@ -1,10 +1,12 @@
-﻿namespace AutoRest.Core.TestGen.Value
+﻿using AutoRest.Core.Model;
+
+namespace AutoRest.Core.TestGen.Value
 {
-    public sealed class EnumValue : ValueBase
+    public sealed class EnumValue : ValueBase<EnumType>
     {
         public string Value { get; }
 
-        public EnumValue(string value)
+        public EnumValue(EnumType type, string value): base(type)
         {
             Value = value;
         }

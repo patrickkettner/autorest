@@ -9,33 +9,31 @@ namespace AutoRest.Core.TestGen.Value
     {
         public static ValueBase CreateValueModel(this IModelType type, JToken value)
         {
-            Console.WriteLine("TYPE: " + type.GetType());
-
             if (value == null)
             {
                 return null;
             }
 
-            var primiryType = type as PrimaryType;
-            if (primiryType != null)
+            var primaryType = type as PrimaryType;
+            if (primaryType != null)
             {
-                Console.WriteLine("KNOWN TYPE: " + primiryType.KnownPrimaryType);
                 var jValue = value as JValue;
-                switch (primiryType.KnownPrimaryType)
+                switch (primaryType.KnownPrimaryType)
                 {
                     case KnownPrimaryType.String:
-                        return new PrimaryValue<string>(jValue.ToObject<string>());
+                        return new PrimaryValue<string>(primaryType, jValue.ToObject<string>());
                     case KnownPrimaryType.Int:
-                        return new PrimaryValue<int>(jValue.ToObject<int>());
+                        return new PrimaryValue<int>(primaryType, jValue.ToObject<int>());
                     case KnownPrimaryType.Long:
-                        return new PrimaryValue<long>(jValue.ToObject<long>());
+                        return new PrimaryValue<long>(primaryType, jValue.ToObject<long>());
                     case KnownPrimaryType.Boolean:
-                        return new PrimaryValue<bool>(jValue.ToObject<bool>());
+                        return new PrimaryValue<bool>(primaryType, jValue.ToObject<bool>());
                     case KnownPrimaryType.Stream:
-                        return new StreamValue(jValue.ToObject<string>());
+                        return new StreamValue(primaryType, jValue.ToObject<string>());
                     case KnownPrimaryType.DateTime:
-                        return new DateTimeValue(jValue.ToObject<DateTime>());
+                        return new DateTimeValue(primaryType, jValue.ToObject<DateTime>());
                 }
+                Console.Error.WriteLine($"Unknown Primary Type: {primaryType.KnownPrimaryType}");
                 return null;
             }
 
@@ -44,16 +42,23 @@ namespace AutoRest.Core.TestGen.Value
             {
                 var jArray = value as JArray;
                 var elementType = sequenceType.ElementType;
-                return new SequenceValue(jArray.Select(v => elementType.CreateValueModel(v)));
+                return new SequenceValue(sequenceType, jArray.Select(v => elementType.CreateValueModel(v)));
             }
 
             var enumType = type as EnumType;
             if (enumType != null)
             {
-                return new EnumValue(value.ToObject<string>());
+                return new EnumValue(enumType, value.ToObject<string>());
             }
 
-            return new CompositeValue((CompositeType)type, value as JObject);
+            var compositeType = type as CompositeType;
+            if (compositeType != null)
+            {
+                return new CompositeValue(compositeType, value as JObject);
+            }
+
+            Console.Error.WriteLine($"Unknown Type: {type.ToString()}");
+            return null;
         }
     }
 }
