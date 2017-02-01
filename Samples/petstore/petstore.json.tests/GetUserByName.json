@@ -2,5 +2,19 @@
     "operationId": "getUserByName",
     "parameters": {
         "username":  "belkin"
+    },
+    "responses": {
+        "200": {
+            "body": {
+                "id": 0,
+                "username": "belkin",
+                "firstName": "string",
+                "lastName": "string",
+                "email": "string",
+                "password": "password",
+                "phone": "phone",
+                "userStatus": 0
+            }
+        }
     }
 }

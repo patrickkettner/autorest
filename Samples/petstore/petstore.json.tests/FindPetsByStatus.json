@@ -1,6 +1,11 @@
 {
     "operationId": "findPetsByStatus",
     "parameters": {
-        "status": [ "available" ]
+        "status": [ "sold" ]
+    },
+    "responses": {
+        "200": {
+            "body": []
+        }
     }
 }

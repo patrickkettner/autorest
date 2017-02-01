@@ -41,6 +41,10 @@ namespace AutoRest.Core.TestGen.Value
             if (sequenceType != null)
             {
                 var jArray = value as JArray;
+                if (jArray == null)
+                {
+                    return null;
+                }
                 var elementType = sequenceType.ElementType;
                 return new SequenceValue(sequenceType, jArray.Select(v => elementType.CreateValueModel(v)));
             }
@@ -55,6 +59,17 @@ namespace AutoRest.Core.TestGen.Value
             if (compositeType != null)
             {
                 return new CompositeValue(compositeType, value as JObject);
+            }
+
+            var dictionaryType = type as DictionaryType;
+            if (dictionaryType != null)
+            {
+                var objectValue = value as JObject;
+                if (objectValue == null)
+                {
+                    return null;
+                }
+                return new DictionaryValue(dictionaryType, objectValue);
             }
 
             Console.Error.WriteLine($"Unknown Type: {type.ToString()}");

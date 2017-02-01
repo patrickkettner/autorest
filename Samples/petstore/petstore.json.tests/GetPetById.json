@@ -2,5 +2,17 @@
     "operationId": "getPetById",
     "parameters": {
         "petId":  421
+    },
+    "responses": {
+        "200": {
+            "body": {
+                "id": 421,
+                "category": { "id": 0, "name": "string" },
+                "name": "doggie",
+                "photoUrls": [ "string" ],
+                "tags": [ { "id": 0, "name": "string" } ],
+                "status": "available"
+            }
+        }
     }
 }

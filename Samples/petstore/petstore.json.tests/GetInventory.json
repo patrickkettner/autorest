@@ -1,5 +1,10 @@
 {
     "operationId": "getInventory",
-    "parameters": {}
+    "parameters": {},
+    "responses": {
+        "200": {
+            "body": {}
+        }
+    }
 }
     

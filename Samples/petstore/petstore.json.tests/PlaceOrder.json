@@ -9,5 +9,17 @@
             "status": "placed",
             "complete": false
         }
+    },
+    "responses": {
+        "200": {
+            "body": {
+                "id": 42,
+                "petId": 0,
+                "quantity": 0,
+                "shipDate": "2017-01-18T18:35:20Z",
+                "status": "placed",
+                "complete": false
+            }
+        }
     }
 }
