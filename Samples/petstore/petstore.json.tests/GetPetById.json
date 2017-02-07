@@ -8,10 +8,10 @@
             "body": {
                 "id": 421,
                 "category": { "id": 0, "name": "string" },
-                "name": "doggie",
+                "name": "lion",
                 "photoUrls": [ "string" ],
                 "tags": [ { "id": 0, "name": "string" } ],
-                "status": "available"
+                "status": "sold"
             }
         }
     }

@@ -5,7 +5,16 @@
     },
     "responses": {
         "200": {
-            "body": []
+            "body": [
+                {
+                    "id": 421,
+                    "category": { "id": 0, "name": "string" },
+                    "name": "lion",
+                    "photoUrls": [ "string" ],
+                    "tags": [ { "id": 0, "name": "string" } ],
+                    "status": "sold",
+                }
+            ]
         }
     }
 }

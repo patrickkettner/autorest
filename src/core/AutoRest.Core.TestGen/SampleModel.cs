@@ -23,7 +23,12 @@ namespace AutoRest.Core.TestGen
         {
             OperationId = sample.OperationId;
 
-            Method = model.Methods.First(m => m.SerializedName == sample.OperationId);
+            var methodSeq = model.Methods.Where(m => m.SerializedName == sample.OperationId);
+            if (!methodSeq.Any())
+            {
+                Console.Error.WriteLine($"Unknown operation: {sample.OperationId}");
+            }
+            Method = methodSeq.First();
 
             Parameters = Method.Parameters.Select(p => new Parameter(sample.Parameters, p));
 
