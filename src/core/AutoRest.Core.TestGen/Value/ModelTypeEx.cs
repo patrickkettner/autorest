@@ -32,6 +32,8 @@ namespace AutoRest.Core.TestGen.Value
                         return new StreamValue(primaryType, jValue.ToObject<string>());
                     case KnownPrimaryType.DateTime:
                         return new DateTimeValue(primaryType, jValue.ToObject<DateTime>());
+                    case KnownPrimaryType.TimeSpan:
+                        return new TimeSpanValue(primaryType, jValue.ToObject<string>());
                 }
                 Console.Error.WriteLine($"Unknown Primary Type: {primaryType.KnownPrimaryType}");
                 return null;

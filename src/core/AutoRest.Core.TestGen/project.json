@@ -1,4 +1,4 @@
-﻿{
+{
   "version": "1.0.0-*",
   "authors": [ "Microsoft" ],
 
@@ -21,11 +21,11 @@
   },
 
   "dependencies": {
-    "Newtonsoft.Json": "[9.0.1,10.0)",
-    "YamlDotNet.Signed": "3.8.0",
     "AutoRest.Swagger": {
       "target": "project",
       "type": "build"
-    }
+    },
+    "Newtonsoft.Json": "[9.0.1,10.0)",
+    "YamlDotNet.Signed": "3.8.0"
   }
 }
