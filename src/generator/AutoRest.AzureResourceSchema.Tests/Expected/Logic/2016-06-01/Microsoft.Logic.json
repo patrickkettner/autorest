@@ -7,6 +7,9 @@
     "workflows": {
       "type": "object",
       "properties": {
+        "name": {
+          "type": "string"
+        },
         "type": {
           "type": "string",
           "enum": [
@@ -22,10 +25,6 @@
         "id": {
           "type": "string",
           "description": "The resource id."
-        },
-        "name": {
-          "type": "string",
-          "description": "Gets the resource name."
         },
         "location": {
           "type": "string",
@@ -58,6 +57,7 @@
         }
       },
       "required": [
+        "name",
         "type",
         "apiVersion",
         "properties"

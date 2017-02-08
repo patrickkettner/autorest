@@ -7,6 +7,9 @@
     "workflows": {
       "type": "object",
       "properties": {
+        "name": {
+          "type": "string"
+        },
         "type": {
           "type": "string",
           "enum": [
@@ -22,10 +25,6 @@
         "id": {
           "type": "string",
           "description": "Gets or sets the resource id."
-        },
-        "name": {
-          "type": "string",
-          "description": "Gets the resource name."
         },
         "location": {
           "type": "string",
@@ -68,6 +67,7 @@
         }
       },
       "required": [
+        "name",
         "type",
         "apiVersion",
         "properties"
@@ -77,6 +77,9 @@
     "workflows_accessKeys": {
       "type": "object",
       "properties": {
+        "name": {
+          "type": "string"
+        },
         "type": {
           "type": "string",
           "enum": [
@@ -106,6 +109,7 @@
         }
       },
       "required": [
+        "name",
         "type",
         "apiVersion",
         "properties"
@@ -326,6 +330,9 @@
     "workflows_accessKeys_childResource": {
       "type": "object",
       "properties": {
+        "name": {
+          "type": "string"
+        },
         "type": {
           "type": "string",
           "enum": [
@@ -355,6 +362,7 @@
         }
       },
       "required": [
+        "name",
         "type",
         "apiVersion",
         "properties"

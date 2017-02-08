@@ -1,4 +1,4 @@
-﻿{
+{
   "id": "http://schema.management.azure.com/schemas/2016-03-01/microsoft.insights.json#",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "microsoft.insights",
@@ -7,6 +7,10 @@
     "alertrules": {
       "type": "object",
       "properties": {
+        "name": {
+          "type": "string",
+          "description": "The name of the rule."
+        },
         "type": {
           "type": "string",
           "enum": [
@@ -18,10 +22,6 @@
           "enum": [
             "2016-03-01"
           ]
-        },
-        "name": {
-          "type": "string",
-          "description": "Azure resource name"
         },
         "location": {
           "type": "string",
@@ -53,6 +53,7 @@
         }
       },
       "required": [
+        "name",
         "type",
         "apiVersion",
         "location",
