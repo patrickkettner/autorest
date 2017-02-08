@@ -7,6 +7,10 @@
     "vaults": {
       "type": "object",
       "properties": {
+        "name": {
+          "type": "string",
+          "description": "The name of the recovery services vault."
+        },
         "type": {
           "type": "string",
           "enum": [
@@ -59,6 +63,7 @@
         }
       },
       "required": [
+        "name",
         "type",
         "apiVersion",
         "properties"

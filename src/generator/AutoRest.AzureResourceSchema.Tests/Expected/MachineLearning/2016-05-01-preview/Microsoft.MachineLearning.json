@@ -7,6 +7,9 @@
     "webServices": {
       "type": "object",
       "properties": {
+        "name": {
+          "type": "string"
+        },
         "type": {
           "type": "string",
           "enum": [
@@ -18,10 +21,6 @@
           "enum": [
             "2016-05-01-preview"
           ]
-        },
-        "name": {
-          "type": "string",
-          "description": "Resource Name"
         },
         "location": {
           "type": "string",
@@ -54,6 +53,7 @@
         }
       },
       "required": [
+        "name",
         "type",
         "apiVersion",
         "location",
